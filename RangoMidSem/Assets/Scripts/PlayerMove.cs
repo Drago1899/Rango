@@ -11,12 +11,14 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private float velocity;
     PhotonView m_PV;
+    ParticleSystem m_PS;
 
 
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        m_PS = GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
         m_PV = GetComponent<PhotonView>();
         if (m_PV.IsMine) {
@@ -24,6 +26,9 @@ public class PlayerMove : MonoBehaviour
 
 
         }
+        m_PS.Stop();
+        m_PS.Play();
+
 
     }
 
