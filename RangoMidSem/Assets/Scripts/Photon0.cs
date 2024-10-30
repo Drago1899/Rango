@@ -20,6 +20,7 @@ public class Photon0 : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
 
     }
+
     public override void OnJoinedLobby()
     {
         PhotonNetwork.LoadLevel("Menu");

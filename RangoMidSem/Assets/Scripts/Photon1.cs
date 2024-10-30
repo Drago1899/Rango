@@ -12,12 +12,20 @@ public class Photon1 : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField NickName;
     [SerializeField] TMP_Text NoNickName;
     [SerializeField] string Room;
+    public Sprite Canva;
     void Start()
     {
      
         NoNickName.text = "";
-        
+        PhotonNetwork.ConnectUsingSettings();
     }
+    public override void OnConnectedToMaster() {
+        print("Se ha conectado al master");
+        PhotonNetwork.JoinLobby();
+        
+
+    }
+
     public override void OnJoinedRoom()
     {
         print("Se entró al room");
