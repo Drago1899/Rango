@@ -10,11 +10,10 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] GameObject Flechita;
-    [SerializeField] private Transform SpawnFlecha;
     [SerializeField] BoxCollider m_boxCollider;
     [SerializeField] private float velocity;
     PhotonView m_PV;
-    ParticleSystem m_PS;
+    [SerializeField] ParticleSystem m_PS;
     int m_life;
 
     Rigidbody rb;

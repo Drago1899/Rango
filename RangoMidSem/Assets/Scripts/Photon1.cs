@@ -4,10 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
-
-
-
-
+using Unity.VisualScripting.FullSerializer;
 
 public class Photon1 : MonoBehaviourPunCallbacks
 
@@ -26,6 +23,10 @@ public class Photon1 : MonoBehaviourPunCallbacks
         print("Se entró al room");
         
         PhotonNetwork.LoadLevel("Juego");
+    }
+    public override void OnJoinRoomFailed(short returnCode, string message) {
+        base.OnJoinRoomFailed(returnCode, message);
+        print("return code " + message);
     }
 
 

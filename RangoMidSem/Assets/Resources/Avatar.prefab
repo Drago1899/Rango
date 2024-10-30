@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
+  m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!114 &3111169443926320628
 MonoBehaviour:
@@ -296,9 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Flechita: {fileID: 2441021159871669263}
-  SpawnFlecha: {fileID: 0}
   m_boxCollider: {fileID: 1347198984163433899}
   velocity: 9.91
+  m_PS: {fileID: 5478284300931793501}
 --- !u!1 &6652885253598166296
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,5 +536,10 @@ PrefabInstance:
 --- !u!4 &5478284300931793500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3302442364004722508, guid: 10434d6bf3af98b46a88ab696f543ee3, type: 3}
+  m_PrefabInstance: {fileID: 7048810023871341840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5478284300931793501 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3302442364004722509, guid: 10434d6bf3af98b46a88ab696f543ee3, type: 3}
   m_PrefabInstance: {fileID: 7048810023871341840}
   m_PrefabAsset: {fileID: 0}
