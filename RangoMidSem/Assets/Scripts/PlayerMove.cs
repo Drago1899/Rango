@@ -6,6 +6,7 @@ using UnityEngine;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     PhotonView m_PV;
     [SerializeField] ParticleSystem m_PS;
     int m_life;
+    [SerializeField] TextMeshProUGUI m_currentText;
 
     Rigidbody rb;
     // Start is called before the first frame update
@@ -31,7 +33,9 @@ public class PlayerMove : MonoBehaviour
 
         }
         m_PS.Stop();
-     
+        GetNewGameplayRole(); ;
+
+
 
 
     }
@@ -89,5 +93,23 @@ public class PlayerMove : MonoBehaviour
         m_PS.Play();
         yield return new WaitForSeconds(m_PS.main.duration);
         PhotonNetwork.Destroy(gameObject);
+    }
+    protected void GetNewGameplayRole()
+    {
+        if (PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue("Role", out object role))
+        {
+            string m_newPlayerRole = role.ToString();
+            switch (role)
+            {
+                case "Innocent":
+                    m_currentText.text = "Innocent";
+                    m_currentText.color = Color.blue;
+                    break;
+                case "Traitor":
+                    m_currentText.text = "Traitor";
+                    m_currentText.color = Color.red;
+                    break;
+            }
+        }
     }
 }

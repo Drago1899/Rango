@@ -5,14 +5,22 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using Unity.VisualScripting.FullSerializer;
+using UnityEditor.PackageManager;
 
 public class Photon1 : MonoBehaviourPunCallbacks
 
 {
+    private enum Anim
+    {
+        Anim, Loading
+    }
     [SerializeField] TMP_InputField NickName;
     [SerializeField] TMP_Text NoNickName;
     [SerializeField] string Room;
     public Sprite Canva;
+    [SerializeField] Animator m_loadingScreen;
+    private Anim m_Anim;
+   
     void Start()
     {
      
@@ -24,6 +32,11 @@ public class Photon1 : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
         
 
+    }
+    public override void OnJoinedLobby()
+    {
+        print(" ha entrado al lobyy ");
+        m_loadingScreen.Play(Anim.Loading.ToString());
     }
 
     public override void OnJoinedRoom()
